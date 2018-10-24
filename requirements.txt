@@ -1,0 +1,5 @@
+numpy
+pandas
+synapseclient
+jsonschema
+boto3

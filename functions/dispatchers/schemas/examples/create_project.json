@@ -1,0 +1,6 @@
+{
+  "operation": "CREATE_PROJECT",
+  "data": {
+    "projectName": "test project"
+  }
+}

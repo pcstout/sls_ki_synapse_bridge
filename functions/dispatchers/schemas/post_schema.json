@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "operation": {
+      "type": "string",
+      "enum": ["CREATE_PROJECT", "SYNC_USERS"]
+    },
+    "data": {
+      "oneOf": [{
+        "$ref": "#/definitions/create_project"
+      }]
+    }
+  },
+  "required": ["operation", "data"],
+  "definitions": {
+    "create_project": {
+      "type": "object",
+      "properties": {
+        "projectName": {
+          "type": "string"
+        }
+      },
+      "required": ["projectName"]
+    },
+    "sync_users": {
+      "type": "object",
+      "properties": {
+        "projectName": {
+          "type": "string"
+        },
+        "users": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["projectName", "users"]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "operation": "SYNC_USERS",
+  "data": {
+    "projectName": "test project",
+    "users": [
+      "john@test.com",
+      "jane@test.com"
+    ]
+  }
+}
