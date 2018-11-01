@@ -3,8 +3,6 @@ import json as JSON
 import jsonschema
 import logging
 
-OPERATIONS = ['CREATE_PROJECT', 'SYNC_USERS']
-
 
 def validate(payload):
     """
@@ -20,7 +18,7 @@ def validate(payload):
 
 def example_json(operation):
     """
-    Gets some example JSON
+    Gets the example JSON for a specific operation.
     """
     with open('functions/dispatchers/schemas/examples/{0}.json'.format(operation.lower())) as f:
         return JSON.load(f)
@@ -32,3 +30,10 @@ def schema():
     """
     with open('functions/dispatchers/schemas/post_schema.json') as f:
         return JSON.load(f)
+
+
+def operations():
+    """
+    Gets the supported operations from the JSON schema.
+    """
+    return schema()['properties']['operation']['enum']

@@ -4,16 +4,96 @@
   "properties": {
     "operation": {
       "type": "string",
-      "enum": ["CREATE_PROJECT", "SYNC_USERS"]
+      "enum": ["CREATE_RALLY", "CREATE_PROJECT", "SYNC_USERS"]
     },
     "data": {
-      "oneOf": [{
-        "$ref": "#/definitions/create_project"
-      }]
+      "anyOf": [{
+          "$ref": "#/definitions/create_rally"
+        },
+        {
+          "$ref": "#/definitions/create_project"
+        },
+        {
+          "$ref": "#/definitions/sync_users"
+        }
+      ]
     }
   },
-  "required": ["operation", "data"],
+  "required": [
+    "operation",
+    "data"
+  ],
   "definitions": {
+    "create_rally": {
+      "type": "object",
+      "properties": {
+        "consortium": {
+          "type": "string"
+        },
+        "rallyAdminProjectId": {
+          "type": "string"
+        },
+        "wikiTaskTemplateId": {
+          "type": "string"
+        },
+        "wikiRallyTemplateId": {
+          "type": "string"
+        },
+        "allFilesSchemaId": {
+          "type": "string"
+        },
+        "defaultRallyTeamMembers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rallyAdminTeamPermissions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sprintFolders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "posts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/rally_post"
+          }
+        }
+      },
+      "required": [
+        "consortium",
+        "rallyAdminProjectId",
+        "wikiTaskTemplateId",
+        "wikiRallyTemplateId",
+        "allFilesSchemaId",
+        "defaultRallyTeamMembers",
+        "rallyAdminTeamPermissions",
+        "sprintFolders",
+        "posts"
+      ]
+    },
+    "rally_post": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "messageMarkdown": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "messageMarkdown"
+      ]
+    },
     "create_project": {
       "type": "object",
       "properties": {
@@ -21,7 +101,9 @@
           "type": "string"
         }
       },
-      "required": ["projectName"]
+      "required": [
+        "projectName"
+      ]
     },
     "sync_users": {
       "type": "object",
@@ -36,7 +118,10 @@
           }
         }
       },
-      "required": ["projectName", "users"]
+      "required": [
+        "projectName",
+        "users"
+      ]
     }
   }
 }

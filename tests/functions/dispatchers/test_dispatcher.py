@@ -19,7 +19,7 @@ def test_handler(monkeypatch, sqs_client):
     queue = sqs_client.create_queue(QueueName=SQS_DISPATCH_QUEUE_NAME)
     monkeypatch.setenv('SQS_DISPATCH_QUEUE_URL', queue.get('QueueUrl'))
 
-    for operation in ps.OPERATIONS:
+    for operation in ps.operations():
         payload = ps.example_json(operation)
         resp = dispatcher.handler(payload, None)
         assert resp.get('statusCode') == 200
@@ -33,6 +33,6 @@ def test__publish_sqs_message(monkeypatch, sqs_client):
     queue = sqs_client.create_queue(QueueName=SQS_DISPATCH_QUEUE_NAME)
     monkeypatch.setenv('SQS_DISPATCH_QUEUE_URL', queue.get('QueueUrl'))
 
-    for operation in ps.OPERATIONS:
+    for operation in ps.operations():
         payload = ps.example_json(operation)
         assert dispatcher._publish_sqs_message(payload) == True

@@ -9,8 +9,12 @@ def test_schema():
     assert schema != None
 
 
+def test_operations():
+    assert ps.operations() == ["CREATE_RALLY", "CREATE_PROJECT", "SYNC_USERS"]
+
+
 def test_example_json():
-    for operation in ps.OPERATIONS:
+    for operation in ps.operations():
         example = ps.example_json(operation)
         assert example != None
 
@@ -19,7 +23,7 @@ def test_validate():
     payload = '{ "f": true  }'
     assert ps.validate(payload) == False
 
-    for operation in ps.OPERATIONS:
+    for operation in ps.operations():
         payload = ps.example_json(operation)
         assert ps.validate(payload) == True
 

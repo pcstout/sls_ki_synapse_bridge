@@ -1,0 +1,17 @@
+{
+    "operation": "CREATE_RALLY",
+    "data": {
+        "consortium": "Bill and Melinda Gates Foundation",
+        "rallyAdminProjectId": "syn123",
+        "wikiTaskTemplateId": "syn124",
+        "wikiRallyTemplateId": "syn125",
+        "allFilesSchemaId": "syn126",
+        "defaultRallyTeamMembers": ["123456", "123457"],
+        "rallyAdminTeamPermissions": ["DOWNLOAD", "CHANGE_PERMISSIONS", "CHANGE_SETTINGS", "MODERATE", "READ", "UPDATE", "DELETE", "CREATE"],
+        "sprintFolders": ["Data", "Research Questions", "Results", "Sprint kickoff", "Report out", "Timeline"],
+        "posts": [{
+            "title": "Daily Discussion",
+            "messageMarkdown": "Use this post for a daily checkin."
+        }]
+    }
+}
