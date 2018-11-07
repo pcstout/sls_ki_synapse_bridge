@@ -1,7 +1,6 @@
-import tests.test_helper
 import pytest
 import json as JSON
-import functions.dispatchers.post_schema as ps
+import core.post_schema as ps
 
 
 def test_schema():
@@ -29,3 +28,13 @@ def test_validate():
 
         payload['operation'] = 'FAIL'
         assert ps.validate(payload) == False
+
+
+def test_execute(mock_success_operations):
+    for operation in ps.operations():
+        payload = ps.example_json(operation)
+        assert ps.execute(payload) != None
+
+        with pytest.raises(Exception):
+            payload['operation'] = 'FAIL'
+            ps.execute(payload)

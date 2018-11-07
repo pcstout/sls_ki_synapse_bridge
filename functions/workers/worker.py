@@ -1,24 +1,26 @@
 import json
+import core.log
+import logging
+import json as JSON
+from core.param_store import ParamStore
+import core.post_schema as ps
 
 
 def handler(event, context):
-    body = {
-        "message": "Go Serverless v1.0! Your function executed successfully!",
-        "input": event
-    }
+    """
+    Handles the worker event.
+    """
+    logging.debug('Event received: {}'.format(JSON.dumps(event)))
+
+    if not ps.validate(event):
+        raise Exception('Invalid JSON object schema.')
+
+    if not ps.execute(event):
+        raise Exception('Failed to execute.')
 
     response = {
-        "statusCode": 200,
-        "body": json.dumps(body)
+        "statusCode": 200
     }
 
+    logging.debug('Event received: {}'.format(JSON.dumps(event)))
     return response
-
-    # Use this code if you don't use the http event with the LAMBDA-PROXY
-    # integration
-    """
-    return {
-        "message": "Go Serverless v1.0! Your function executed successfully!",
-        "event": event
-    }
-    """

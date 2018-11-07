@@ -27,6 +27,9 @@
     "create_rally": {
       "type": "object",
       "properties": {
+        "rallyNumber": {
+          "type": "integer"
+        },
         "consortium": {
           "type": "string"
         },

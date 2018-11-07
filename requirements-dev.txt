@@ -1,4 +1,5 @@
 pylint
 pytest
 pytest-pylint
+pytest-mock
 moto

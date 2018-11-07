@@ -1,5 +1,6 @@
+synapseclient==1.9.0
+-e git+https://github.com/Sage-Bionetworks/ki-rally-manager.git#egg=kirallymanager
 numpy
 pandas
-synapseclient
 jsonschema
 boto3

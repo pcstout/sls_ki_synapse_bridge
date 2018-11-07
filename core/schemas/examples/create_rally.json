@@ -1,6 +1,7 @@
 {
     "operation": "CREATE_RALLY",
     "data": {
+        "rallyNumber": 1,
         "consortium": "Bill and Melinda Gates Foundation",
         "rallyAdminProjectId": "syn123",
         "wikiTaskTemplateId": "syn124",
@@ -11,7 +12,7 @@
         "sprintFolders": ["Data", "Research Questions", "Results", "Sprint kickoff", "Report out", "Timeline"],
         "posts": [{
             "title": "Daily Discussion",
-            "messageMarkdown": "Use this post for a daily checkin."
+            "messageMarkdown": "Use this post for a daily check in."
         }]
     }
 }

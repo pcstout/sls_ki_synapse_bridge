@@ -1,10 +1,9 @@
-import tests.test_helper
-import os
 import pytest
+import os
 import boto3
 from moto import mock_sqs
 import functions.dispatchers.dispatcher as dispatcher
-import functions.dispatchers.post_schema as ps
+import core.post_schema as ps
 
 SQS_DISPATCH_QUEUE_NAME = 'mock-aws-sqs-dispatcher'
 

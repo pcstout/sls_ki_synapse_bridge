@@ -1,4 +1,3 @@
-import tests.test_helper
 import pytest
 import os
 import boto3

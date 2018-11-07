@@ -4,7 +4,7 @@ import logging
 import json as JSON
 import boto3
 from core.param_store import ParamStore
-import functions.dispatchers.post_schema as ps
+import core.post_schema as ps
 
 
 def handler(event, context):
